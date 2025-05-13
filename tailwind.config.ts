@@ -37,7 +37,21 @@ const config: Config = {
       boxShadow: {
         soft: '0 2px 6px rgba(0,0,0,0.05)',
       },
-   },
+      keyframes: {
+        typewriter: {
+          '0%': { width: '0ch' },
+          '100%': { width: '25ch' },
+        },
+        blink: {
+          '0%, 100%': { borderColor: 'transparent' },
+          '50%': { borderColor: 'currentColor' },
+        },
+      },
+      animation: {
+        typewriter: 'typewriter 3s steps(25) 0.5s 1 normal both',
+        blink: 'blink 0.8s step-end infinite',
+      },
+    },
   },
   plugins: [],
 };
