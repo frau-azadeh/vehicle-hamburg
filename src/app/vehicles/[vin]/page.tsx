@@ -24,7 +24,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function VehicleDetailsPage({ params }: PageProps) {
+ function VehicleDetailsPage({ params }: PageProps) {
   const vehicle = vehicles.find((v) => v.vin === params.vin);
 
   if (!vehicle) {
@@ -41,3 +41,4 @@ export default function VehicleDetailsPage({ params }: PageProps) {
     </div>
   );
 }
+export default VehicleDetailsPage
