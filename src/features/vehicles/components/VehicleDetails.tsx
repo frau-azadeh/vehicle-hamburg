@@ -2,7 +2,7 @@ import { Vehicle } from '@/features/vehicles/types';
 import Card from '@/features/vehicles/components/ui/Card';
 import Badge from '@/features/vehicles/components/ui/Badge';
 import DetailItem from './DetailItem';
-
+import ShareButton from './ui/ShareButton';
 
 type VehicleDetailsProps = {
   vehicle: Vehicle | null;
@@ -21,6 +21,7 @@ const VehicleDetails = ({ vehicle }: VehicleDetailsProps) =>{
     <Card className="space-y-3">
       <div className="flex items-center justify-between mb-2">
         <h2 className="text-lg font-semibold text-text">Vehicle Details</h2>
+        <ShareButton />
       </div>
 
       <DetailItem label="VIN" value={vehicle.vin} />
