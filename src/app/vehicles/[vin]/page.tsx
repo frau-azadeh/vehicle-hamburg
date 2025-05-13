@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import vehicles from '@/data/vehicles.json';
 import ClientView from './ClientView';
 
@@ -7,6 +8,21 @@ type PageProps = {
     vin: string;
   };
 };
+
+export function generateMetadata({ params }: PageProps): Metadata {
+  const vehicle = vehicles.find((v) => v.vin === params.vin);
+
+  if (!vehicle) {
+    return {
+      title: 'Vehicle not found | Bahman',
+    };
+  }
+
+  return {
+    title: `Vehicle ${vehicle.vin} | Bahman`,
+    description: `Details for vehicle ${vehicle.vin} parked at ${vehicle.address}`,
+  };
+}
 
 export default function VehicleDetailsPage({ params }: PageProps) {
   const vehicle = vehicles.find((v) => v.vin === params.vin);
@@ -20,6 +36,7 @@ export default function VehicleDetailsPage({ params }: PageProps) {
       <h1 className="text-2xl font-bold text-text text-center">
         Vehicle Details
       </h1>
+
       <ClientView vehicle={vehicle} />
     </div>
   );
