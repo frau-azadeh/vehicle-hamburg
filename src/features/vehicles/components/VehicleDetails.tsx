@@ -1,5 +1,7 @@
 import { Vehicle } from '@/features/vehicles/types';
 import Card from '@/features/vehicles/components/ui/Card';
+import Badge from '@/features/vehicles/components/ui/Badge';
+import DetailItem from './DetailItem';
 
 
 type VehicleDetailsProps = {
@@ -21,6 +23,29 @@ const VehicleDetails = ({ vehicle }: VehicleDetailsProps) =>{
         <h2 className="text-lg font-semibold text-text">Vehicle Details</h2>
       </div>
 
+      <DetailItem label="VIN" value={vehicle.vin} />
+      <DetailItem label="Fuel Level" value={`${vehicle.fuelLevel}%`} />
+      <DetailItem label="Fuel Type" value={vehicle.fuelType} />
+      <DetailItem label="Color" value={vehicle.primaryColor} />
+      <DetailItem label="Address" value={vehicle.address} />
+
+      <DetailItem
+        label="Charging"
+        value={
+          <Badge variant={vehicle.charging ? 'success' : 'error'}>
+            {vehicle.charging ? 'Yes' : 'No'}
+          </Badge>
+        }
+      />
+
+      <DetailItem
+        label="Free For Rental"
+        value={
+          <Badge variant={vehicle.freeForRental ? 'success' : 'error'}>
+            {vehicle.freeForRental ? 'Yes' : 'No'}
+          </Badge>
+        }
+      />
     </Card>
   );
 }
