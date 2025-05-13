@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from './Button';
+import { ClipboardCopy, Check } from 'lucide-react';
 
 const ShareButton = () => {
   const [copied, setCopied] = useState(false);
@@ -18,12 +19,19 @@ const ShareButton = () => {
 
   return (
     <Button
-      variant="outline"
-      onClick={handleCopy}
-      className="text-sm"
-    >
-      {copied ? 'Copied!' : 'Copy Link'}
-    </Button>
+  variant="outline"
+  onClick={handleCopy}
+  className="flex items-center gap-2"
+>
+  {copied ? (
+    <Check className="w-4 h-4 text-green-600" />
+  ) : (
+    <ClipboardCopy className="w-4 h-4" />
+  )}
+  <span className="text-sm">
+    {copied ? 'Copied!' : 'Copy Link'}
+  </span>
+</Button>
   );
 };
 
