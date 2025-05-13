@@ -46,10 +46,16 @@ const config: Config = {
           '0%, 100%': { borderColor: 'transparent' },
           '50%': { borderColor: 'currentColor' },
         },
+        highlight: {
+          '0%': { transform: 'scale(1)', boxShadow: '0 0 0px transparent' },
+          '50%': { transform: 'scale(1.015)', boxShadow: '0 0 8px rgba(0, 0, 0, 0.1)' },
+          '100%': { transform: 'scale(1)', boxShadow: '0 0 0px transparent' },
+        },
       },
       animation: {
         typewriter: 'typewriter 3s steps(25) 0.5s 1 normal both',
         blink: 'blink 0.8s step-end infinite',
+        highlight: 'highlight 0.6s ease-in-out',
       },
     },
   },
