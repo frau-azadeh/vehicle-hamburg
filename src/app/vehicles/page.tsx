@@ -1,18 +1,23 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
 import {
   VehicleList,
   VehiclePanel,
   useVehicles,
 } from '@/features/vehicles';
 import VehicleFuelFilterBar from '@/features/vehicles/components/VehicleFuelFilterBar';
-import ResetFilters from '@/features/vehicles/components/ui/ResetFilters';
 import { normalizeFuelType } from '@/features/vehicles/utils/fuelTypeUtils';
+import ResetFilters from '@/features/vehicles/components/ui/ResetFilters';
 
 function VehiclesPage() {
   const { vehicles, selectedVin, setSelectedVin } = useVehicles();
   const [fuelFilter, setFuelFilter] = useState('ALL');
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const fuelOptions = useMemo(() => {
     const unique = Array.from(
@@ -21,13 +26,47 @@ function VehiclesPage() {
     return ['ALL', ...unique.filter(Boolean)];
   }, [vehicles]);
 
+  useEffect(() => {
+    if (!vehicles.length) return;
+
+    const vin = searchParams?.get('vin');
+    const fuel = searchParams?.get('fuel')?.toUpperCase();
+
+    const vinExists = vin && vehicles.some((v) => v.vin === vin);
+
+    if (vin && vinExists) setSelectedVin(vin);
+    if (vin && !vinExists) {
+      toast.error('Vehicle not found');
+      setSelectedVin(null);
+      router.push('/vehicles', { scroll: false });
+    }
+
+    if (fuel && fuelOptions.includes(fuel)) setFuelFilter(fuel);
+  }, [vehicles, searchParams, fuelOptions, router, setSelectedVin]);
+
+  const updateUrl = (params: URLSearchParams) => {
+    router.push(`?${params.toString()}`, { scroll: false });
+  };
+
   const handleFilterChange = (fuel: string) => {
     setFuelFilter(fuel);
+    const params = new URLSearchParams(searchParams?.toString());
+
+    fuel === 'ALL' ? params.delete('fuel') : params.set('fuel', fuel);
+    updateUrl(params);
+  };
+
+  const handleSelect = (vin: string) => {
+    setSelectedVin(vin);
+    const params = new URLSearchParams(searchParams?.toString());
+    params.set('vin', vin);
+    updateUrl(params);
   };
 
   const handleReset = () => {
     setFuelFilter('ALL');
     setSelectedVin(null);
+    router.push('/vehicles', { scroll: false });
   };
 
   const filteredVehicles = useMemo(() => {
@@ -44,7 +83,7 @@ function VehiclesPage() {
         <VehiclePanel
           vehicles={vehicles}
           selectedVin={selectedVin}
-          onSelect={(vin) => setSelectedVin(vin)}
+          onSelect={handleSelect}
         />
       </div>
 
@@ -64,7 +103,7 @@ function VehiclesPage() {
         <VehicleList
           vehicles={filteredVehicles}
           selectedVin={selectedVin}
-          onSelect={(vin) => setSelectedVin(vin)}
+          onSelect={handleSelect}
         />
       </div>
     </main>
