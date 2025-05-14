@@ -16,9 +16,7 @@ function VehiclesPageContent() {
   const router = useRouter();
 
   const fuelOptions = useMemo(() => {
-    const unique = Array.from(
-      new Set(vehicles.map((v) => normalizeFuelType(v.fuelType)))
-    );
+    const unique = Array.from(new Set(vehicles.map((v) => normalizeFuelType(v.fuelType))));
     return ['ALL', ...unique.filter(Boolean)];
   }, [vehicles]);
 
@@ -81,11 +79,7 @@ function VehiclesPageContent() {
   return (
     <main className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
       <div className="order-1 lg:order-2">
-        <VehiclePanel
-          vehicles={vehicles}
-          selectedVin={selectedVin}
-          onSelect={handleSelect}
-        />
+        <VehiclePanel vehicles={vehicles} selectedVin={selectedVin} onSelect={handleSelect} />
       </div>
 
       <div className="space-y-4 order-2 lg:order-1">
