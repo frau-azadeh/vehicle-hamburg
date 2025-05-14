@@ -11,11 +11,11 @@ const VehicleMapSingle = dynamic(() => import('@/features/vehicles/components/Ve
   ssr: false,
 });
 
-type Props = {
+type ClientViewProps = {
   vehicle: Vehicle;
 };
 
-function ClientView({ vehicle }: Props) {
+function ClientView({ vehicle }: ClientViewProps) {
   const router = useRouter();
 
   return (
@@ -39,4 +39,5 @@ function ClientView({ vehicle }: Props) {
     </div>
   );
 }
+
 export default ClientView;
