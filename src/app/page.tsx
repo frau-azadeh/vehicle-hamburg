@@ -30,7 +30,7 @@ function Home() {
           <span className="overflow-hidden whitespace-nowrap border-r-2 border-text animate-typewriter">
             Welcome to Vehicle Hamburg
           </span>
-          <span className="animate-blink border-r-2 border-text ml-1 h-6" />
+          <span className="animate-blink border-r-2 border-text ml-1 h-6" ></span>
         </h1>
       </div>
     </div>
