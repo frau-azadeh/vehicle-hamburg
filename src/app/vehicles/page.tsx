@@ -21,21 +21,28 @@ function VehiclesPage() {
   }, [vehicles]);
 
   useEffect(() => {
-    if (!vehicles.length) return;
+    if (vehicles.length === 0) {
+      return;
+    }
 
     const vin = searchParams?.get('vin');
     const fuel = searchParams?.get('fuel')?.toUpperCase();
 
     const vinExists = vin && vehicles.some((v) => v.vin === vin);
 
-    if (vin && vinExists) setSelectedVin(vin);
+    if (vin && vinExists) {
+      setSelectedVin(vin);
+    }
+
     if (vin && !vinExists) {
       toast.error('Vehicle not found');
       setSelectedVin(null);
       router.push('/vehicles', { scroll: false });
     }
 
-    if (fuel && fuelOptions.includes(fuel)) setFuelFilter(fuel);
+    if (fuel && fuelOptions.includes(fuel)) {
+      setFuelFilter(fuel);
+    }
   }, [vehicles, searchParams, fuelOptions, router, setSelectedVin]);
 
   const updateUrl = (params: URLSearchParams) => {
@@ -46,7 +53,12 @@ function VehiclesPage() {
     setFuelFilter(fuel);
     const params = new URLSearchParams(searchParams?.toString());
 
-    fuel === 'ALL' ? params.delete('fuel') : params.set('fuel', fuel);
+    if (fuel === 'ALL') {
+      params.delete('fuel');
+    } else {
+      params.set('fuel', fuel);
+    }
+
     updateUrl(params);
   };
 

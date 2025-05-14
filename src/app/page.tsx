@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-function Home() {
+ function Home() {
   const router = useRouter();
 
   useEffect(() => {
@@ -30,10 +30,9 @@ function Home() {
           <span className="overflow-hidden whitespace-nowrap border-r-2 border-text animate-typewriter">
             Welcome to Vehicle Hamburg
           </span>
-          <span className="animate-blink border-r-2 border-text ml-1 h-6"></span>
         </h1>
       </div>
     </div>
   );
 }
-export default Home;
+export default Home
