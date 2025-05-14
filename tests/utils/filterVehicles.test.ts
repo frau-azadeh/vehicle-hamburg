@@ -14,9 +14,7 @@ const vehicles: Vehicle[] = [
 
 function filterVehiclesByFuelType(vehicles: Vehicle[], filter: string) {
   if (filter === 'ALL') return vehicles;
-  return vehicles.filter(
-    (v) => normalizeFuelType(v.fuelType) === filter
-  );
+  return vehicles.filter((v) => normalizeFuelType(v.fuelType) === filter);
 }
 
 describe('filterVehiclesByFuelType', () => {
@@ -28,7 +26,7 @@ describe('filterVehiclesByFuelType', () => {
   it('should filter vehicles by GASOLINE', () => {
     const result = filterVehiclesByFuelType(vehicles, 'GASOLINE');
     expect(result).toHaveLength(2);
-    expect(result.map(v => v.vin)).toEqual(['VIN1', 'VIN4']);
+    expect(result.map((v) => v.vin)).toEqual(['VIN1', 'VIN4']);
   });
 
   it('should filter vehicles by ELECTRIC', () => {

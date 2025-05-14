@@ -8,13 +8,9 @@ type VehicleDetailsProps = {
   vehicle: Vehicle | null;
 };
 
-const VehicleDetails = ({ vehicle }: VehicleDetailsProps) =>{
+const VehicleDetails = ({ vehicle }: VehicleDetailsProps) => {
   if (!vehicle) {
-    return (
-      <Card className="text-center text-muted italic py-8">
-        No vehicle selected
-      </Card>
-    );
+    return <Card className="text-center text-muted italic py-8">No vehicle selected</Card>;
   }
 
   return (
@@ -49,5 +45,5 @@ const VehicleDetails = ({ vehicle }: VehicleDetailsProps) =>{
       />
     </Card>
   );
-}
-export default VehicleDetails
+};
+export default VehicleDetails;

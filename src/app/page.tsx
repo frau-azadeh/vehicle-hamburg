@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
- function Home() {
+function Home() {
   const router = useRouter();
 
   useEffect(() => {
@@ -36,4 +36,4 @@ import { useRouter } from 'next/navigation';
     </div>
   );
 }
-export default Home
+export default Home;

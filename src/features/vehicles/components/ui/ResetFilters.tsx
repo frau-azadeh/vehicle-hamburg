@@ -7,7 +7,7 @@ type ResetFiltersProps = {
   onReset: () => void;
 };
 
-const ResetFilters = ({ onReset }: ResetFiltersProps)=> {
+const ResetFilters = ({ onReset }: ResetFiltersProps) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -17,14 +17,10 @@ const ResetFilters = ({ onReset }: ResetFiltersProps)=> {
   };
 
   return (
-    <Button
-      variant="outline"
-      onClick={handleClick}
-      className="flex items-center gap-2"
-    >
+    <Button variant="outline" onClick={handleClick} className="flex items-center gap-2">
       <X className="w-4 h-4" />
       <span className="text-sm">Reset Filters</span>
     </Button>
   );
-}
-export default ResetFilters
+};
+export default ResetFilters;

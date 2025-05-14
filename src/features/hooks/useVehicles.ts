@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Vehicle } from '../vehicles/types';
 
- function useVehicles() {
+function useVehicles() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [selectedVin, setSelectedVin] = useState<string | null>(null);
 
@@ -20,4 +20,4 @@ import { Vehicle } from '../vehicles/types';
     selectedVehicle,
   };
 }
-export default useVehicles
+export default useVehicles;

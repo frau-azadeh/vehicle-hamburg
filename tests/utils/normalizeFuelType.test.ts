@@ -10,7 +10,6 @@ describe('normalizeFuelType', () => {
   it('should handle empty input', () => {
     expect(normalizeFuelType('')).toBe('UNKNOWN');
   });
-  
 
   it('should handle mixed-case input', () => {
     expect(normalizeFuelType('HyBrId')).toBe('HYBRID');

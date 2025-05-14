@@ -15,5 +15,5 @@ const ForceResizeMap = () => {
   }, [map]);
 
   return null;
-}
-export default ForceResizeMap
+};
+export default ForceResizeMap;

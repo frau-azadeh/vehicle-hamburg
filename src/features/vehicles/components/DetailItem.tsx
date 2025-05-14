@@ -11,6 +11,5 @@ const DetailItem = ({ label, value }: DetailItemProps) => {
       <span>{value}</span>
     </div>
   );
-}
-export default DetailItem
-
+};
+export default DetailItem;

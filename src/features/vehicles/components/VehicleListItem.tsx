@@ -14,12 +14,7 @@ export type VehicleListItemProps = {
   refEl: (el: HTMLLIElement | null) => void;
 };
 
-const VehicleListItem = ({
-  vehicle,
-  selected,
-  onClick,
-  refEl,
-}: VehicleListItemProps) => {
+const VehicleListItem = ({ vehicle, selected, onClick, refEl }: VehicleListItemProps) => {
   return (
     <li
       ref={refEl}

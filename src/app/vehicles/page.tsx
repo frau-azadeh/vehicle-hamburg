@@ -3,11 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
-import {
-  VehicleList,
-  VehiclePanel,
-  useVehicles,
-} from '@/features/vehicles';
+import { VehicleList, VehiclePanel, useVehicles } from '@/features/vehicles';
 import VehicleFuelFilterBar from '@/features/vehicles/components/VehicleFuelFilterBar';
 import { normalizeFuelType } from '@/features/vehicles/utils/fuelTypeUtils';
 import ResetFilters from '@/features/vehicles/components/ui/ResetFilters';
@@ -20,9 +16,7 @@ function VehiclesPage() {
   const router = useRouter();
 
   const fuelOptions = useMemo(() => {
-    const unique = Array.from(
-      new Set(vehicles.map((v) => normalizeFuelType(v.fuelType)))
-    );
+    const unique = Array.from(new Set(vehicles.map((v) => normalizeFuelType(v.fuelType))));
     return ['ALL', ...unique.filter(Boolean)];
   }, [vehicles]);
 
@@ -71,20 +65,14 @@ function VehiclesPage() {
 
   const filteredVehicles = useMemo(() => {
     if (fuelFilter === 'ALL') return vehicles;
-    return vehicles.filter(
-      (v) => normalizeFuelType(v.fuelType) === fuelFilter
-    );
+    return vehicles.filter((v) => normalizeFuelType(v.fuelType) === fuelFilter);
   }, [vehicles, fuelFilter]);
 
   return (
     <main className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
       {/* Map + Details */}
       <div className="order-1 lg:order-2">
-        <VehiclePanel
-          vehicles={vehicles}
-          selectedVin={selectedVin}
-          onSelect={handleSelect}
-        />
+        <VehiclePanel vehicles={vehicles} selectedVin={selectedVin} onSelect={handleSelect} />
       </div>
 
       {/* List + Filter */}

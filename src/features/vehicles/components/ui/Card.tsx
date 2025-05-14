@@ -6,7 +6,7 @@ type CardProps = {
   className?: string;
 };
 
-const Card = ({ children, className }: CardProps) =>{
+const Card = ({ children, className }: CardProps) => {
   return (
     <div
       className={clsx(
@@ -18,5 +18,5 @@ const Card = ({ children, className }: CardProps) =>{
       {children}
     </div>
   );
-}
-export default Card
+};
+export default Card;
