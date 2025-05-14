@@ -16,7 +16,7 @@ const ShareButton = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const query = searchParams?.toString();
-      const fullUrl = `${window.location.origin}${pathname}${query ? `?\${query}` : ''}`;
+      const fullUrl = `${window.location.origin}${pathname}${query ? `?${query}` : ''}`;
       setShareUrl(fullUrl);
     }
   }, [pathname, searchParams]);
@@ -27,7 +27,8 @@ const ShareButton = () => {
       setCopied(true);
       toast.success('Link copied!');
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
+    } catch {
+      console.error('Copy failed');
       toast.error('Failed to copy link');
     }
   };
@@ -38,9 +39,10 @@ const ShareButton = () => {
         <Check className="w-4 h-4 text-green-600" />
       ) : (
         <ClipboardCopy className="w-4 h-4" />
-      )}{' '}
-      <span className="text-sm">{copied ? 'Copied!' : 'Copy Link'} </span>{' '}
+      )}
+      <span className="text-sm">{copied ? 'Copied!' : 'Copy Link'}</span>
     </Button>
   );
 };
+
 export default ShareButton;
