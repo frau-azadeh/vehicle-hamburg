@@ -21,11 +21,7 @@ const VehicleList = ({ vehicles, selectedVin, onSelect }: VehicleListProps) => {
   }, [selectedVin]);
 
   if (!vehicles.length) {
-    return (
-      <div className="text-sm text-muted italic p-4 text-center">
-        No vehicles found.
-      </div>
-    );
+    return <div className="text-sm text-muted italic p-4 text-center">No vehicles found.</div>;
   }
 
   return (
@@ -42,6 +38,6 @@ const VehicleList = ({ vehicles, selectedVin, onSelect }: VehicleListProps) => {
         ))}
       </ul>
     </div>
-  );  
-}
-export default VehicleList
+  );
+};
+export default VehicleList;

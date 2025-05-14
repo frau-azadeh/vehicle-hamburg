@@ -7,10 +7,9 @@ import Button from '@/features/vehicles/components/ui/Button';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 
-const VehicleMapSingle = dynamic(
-  () => import('@/features/vehicles/components/VehicleMapSingle'),
-  { ssr: false }
-);
+const VehicleMapSingle = dynamic(() => import('@/features/vehicles/components/VehicleMapSingle'), {
+  ssr: false,
+});
 
 type Props = {
   vehicle: Vehicle;

@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-} from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { Vehicle } from '@/features/vehicles/types';
@@ -17,7 +12,7 @@ type VehicleMapSingleProps = {
   vehicle: Vehicle;
 };
 
-const VehicleMapSingle = ({ vehicle }: VehicleMapSingleProps)=> {
+const VehicleMapSingle = ({ vehicle }: VehicleMapSingleProps) => {
   useEffect(() => {
     const proto = L.Icon.Default.prototype as unknown as {
       _getIconUrl?: () => void;
@@ -48,5 +43,5 @@ const VehicleMapSingle = ({ vehicle }: VehicleMapSingleProps)=> {
       </Marker>
     </MapContainer>
   );
-}
-export default VehicleMapSingle
+};
+export default VehicleMapSingle;

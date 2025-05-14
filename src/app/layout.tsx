@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast';
 import './globals.css';
 
- function RootLayout({ children }: { children: React.ReactNode }) {
+function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-background text-text min-h-screen antialiased">
@@ -10,8 +10,8 @@ import './globals.css';
           toastOptions={{
             duration: 3000,
             style: {
-              background: 'hsl(0, 0%, 100%)', 
-              color: 'hsl(220, 35%, 20%)',       
+              background: 'hsl(0, 0%, 100%)',
+              color: 'hsl(220, 35%, 20%)',
               border: '1px solid hsl(231, 76%, 90%)',
             },
           }}
@@ -21,4 +21,4 @@ import './globals.css';
     </html>
   );
 }
-export default RootLayout
+export default RootLayout;

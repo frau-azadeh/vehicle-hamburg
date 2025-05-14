@@ -1,13 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMap,
-} from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -29,7 +23,7 @@ function FlyToSelectedAndOpenPopup({
 }: {
   selectedVin: string | null;
   vehicles: Vehicle[];
-  markerRefs: React.RefObject<Record<string, L.Marker | null>>
+  markerRefs: React.RefObject<Record<string, L.Marker | null>>;
 }) {
   const map = useMap();
 
@@ -40,10 +34,7 @@ function FlyToSelectedAndOpenPopup({
     const marker = markerRefs.current[selectedVin];
 
     if (selected && marker) {
-      const latlng = L.latLng(
-        selected.geoCoordinate.latitude,
-        selected.geoCoordinate.longitude
-      );
+      const latlng = L.latLng(selected.geoCoordinate.latitude, selected.geoCoordinate.longitude);
 
       const point = map.project(latlng, map.getZoom()).subtract([0, 150]);
       const target = map.unproject(point, map.getZoom());
@@ -92,10 +83,7 @@ const VehicleMap = ({ vehicles, selectedVin, onSelect }: VehicleMapProps) => {
       {vehicles.map((v) => (
         <Marker
           key={v.vin}
-          position={[
-            v.geoCoordinate.latitude,
-            v.geoCoordinate.longitude,
-          ]}
+          position={[v.geoCoordinate.latitude, v.geoCoordinate.longitude]}
           icon={v.vin === selectedVin ? selectedIcon : defaultIcon}
           eventHandlers={{
             click: () => onSelect(v.vin),

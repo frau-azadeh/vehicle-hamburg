@@ -1,11 +1,6 @@
 'use client';
 
-import {
-  Listbox,
-  ListboxButton,
-  ListboxOptions,
-  ListboxOption,
-} from '@headlessui/react';
+import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/react';
 import { Check, ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
 import { formatFuelLabel } from '../utils/fuelTypeUtils';

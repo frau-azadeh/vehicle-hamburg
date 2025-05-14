@@ -4,11 +4,7 @@ import { ButtonHTMLAttributes } from 'react';
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: 'default' | 'outline';
 };
-const Button =({
-  variant = 'default',
-  className,
-  ...props
-}: ButtonProps) =>{
+const Button = ({ variant = 'default', className, ...props }: ButtonProps) => {
   const baseClass = clsx(
     'text-sm px-4 py-2 rounded-soft font-medium transition duration-150',
     {
@@ -21,5 +17,5 @@ const Button =({
   );
 
   return <button className={baseClass} {...props} />;
-}
-export default Button
+};
+export default Button;
