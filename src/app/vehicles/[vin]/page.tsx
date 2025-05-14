@@ -4,9 +4,7 @@ import vehicles from '@/data/vehicles.json';
 import ClientView from './ClientView';
 
 type PageProps = {
-  params: {
-    vin: string;
-  };
+  params: { vin: string };
 };
 
 export function generateMetadata({ params }: PageProps): Metadata {
@@ -34,9 +32,9 @@ function VehicleDetailsPage({ params }: PageProps) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
       <h1 className="text-2xl font-bold text-text text-center">Vehicle Details</h1>
-
       <ClientView vehicle={vehicle} />
     </div>
   );
 }
+
 export default VehicleDetailsPage;
