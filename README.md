@@ -4,11 +4,13 @@ A modern, interactive map-based vehicle browser built with Next.js 15, TailwindC
 
 ## 🖼️ UI Preview
 
-![App Screenshot](https://your-screenshot-url.com/screenshot.jpg)
+![Splash Screen](https://github.com/frau-azadeh/sunflowerdev/blob/main/splash%20screen.png)
 
-![App Screenshot](https://your-screenshot-url.com/screenshot.jpg)
+![Vehicles Humburg](https://github.com/frau-azadeh/sunflowerdev/blob/main/vehicles.png)
 
-![App Screenshot](https://your-screenshot-url.com/screenshot.jpg)
+![Vehicle Details](https://github.com/frau-azadeh/sunflowerdev/blob/main/vehicle-details.png)
+
+![Error 404](https://github.com/frau-azadeh/sunflowerdev/blob/main/404.png)
 
 [🔗 Live Demo](https://vehicle-hamburg.vercel.app) 
 
@@ -66,30 +68,34 @@ A modern, interactive map-based vehicle browser built with Next.js 15, TailwindC
 
 ## 🏗️ Folder Structure
 
+
+
+```
 vehicle-hamburg/
-├── public/ # Static assets (e.g., favicon, images)
-├── src/ # Main source code
-│ ├── app/ # Next.js App Router pages & layouts
-│ │ ├── layout.tsx # Root layout wrapper
-│ │ ├── page.tsx # Homepage
-│ │ └── vehicles/ # Vehicles listing route
-│ │ └── page.tsx # Vehicles page entry point
-│ ├── data/ # Mock data used in the app
-│ │ └── vehicles.json # Simulated vehicle API data
-│ ├── features/ # Modular feature folders
-│ │ ├── hooks/ # Custom React hooks
-│ │ │ └── useVehicles.ts # Fetch and manage vehicle data
-│ │ └── vehicles/ # Vehicle components & types
-│ │ ├── index.tsx # Main vehicle list UI
-│ │ └── types.ts # TypeScript interfaces & types
-├── styles/ # Global styles (if any)
-├── tests/ # Unit & component tests
-├── .env.local # Environment variables (local use)
-├── jest.config.js # Jest test configuration
-├── tailwind.config.ts # TailwindCSS setup (includes custom var() tokens)
-├── tsconfig.json # TypeScript compiler configuration
-├── next.config.ts # Next.js configuration
-└── README.md # Project documentation
+├── public/                 # Static assets (e.g., favicon, images)
+├── src/                    # Main source code
+│   ├── app/                # Next.js App Router pages & layouts
+│   │   ├── layout.tsx      # Root layout wrapper
+│   │   ├── page.tsx        # Homepage
+│   │   └── vehicles/       # Vehicles listing route
+│   │       └── page.tsx    # Vehicles page entry point
+│   ├── data/               # Mock data used in the app
+│   │   └── vehicles.json   # Simulated vehicle API data
+│   ├── features/           # Modular feature folders
+│   │   ├── hooks/          # Custom React hooks
+│   │   │   └── useVehicles.ts  # Fetch and manage vehicle data
+│   │   └── vehicles/       # Vehicle components & types
+│   │       ├── index.tsx   # Main vehicle list UI
+│   │       └── types.ts    # TypeScript interfaces & types
+├── styles/                 # Global styles (if any)
+├── tests/                  # Unit & component tests
+├── .env.local              # Environment variables (local use)
+├── jest.config.js          # Jest test configuration
+├── tailwind.config.ts      # TailwindCSS setup (includes custom var() tokens)
+├── tsconfig.json           # TypeScript compiler configuration
+├── next.config.ts          # Next.js configuration
+└── README.md               # Project documentation
+```
 
 ---
 
@@ -124,11 +130,11 @@ vehicle-hamburg/
 
 > Task board view managed in GitHub Projects
 
-![GitHub Project Board](https://raw.githubusercontent.com/your-username/vehicle-hamburg/main/public/images/backlog.png)
+![GitHub Project Board](https://github.com/frau-azadeh/sunflowerdev/blob/main/backlog.png)
 
 > Example of a fully tracked unit testing issue with todos, labels, and pull request linkage
 
-![Unit Testing Issue](https://raw.githubusercontent.com/your-username/vehicle-hamburg/main/public/images/unit-test.png)
+![Unit Testing Issue](https://github.com/frau-azadeh/sunflowerdev/blob/main/unit%20test.png)
 
 ### 📋 Project Management
 
@@ -141,6 +147,12 @@ I used GitHub Projects to manage development tasks, plan milestones, and track p
 | 🔍 **In Review**   | Peer-reviewed code, open PRs, and integrated issue discussions              |
 | ✅ **Done**        | Completed units such as `Unit Testing`, `Test Utils`, and feature setups    |
 
+
+---
+
+## 📁 Git & Version Control
+
+This project follows **conventional commit standards**, using prefixes like `feat`, `chore`, `docs`, and `test` to keep a clean, readable commit history.
 
 ---
 
