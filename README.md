@@ -12,7 +12,7 @@ A modern, interactive map-based vehicle browser built with Next.js 15, TailwindC
 
 ![Error 404](https://github.com/frau-azadeh/sunflowerdev/blob/main/404.png)
 
-[🔗 Live Demo](https://vehicle-hamburg.vercel.app) 
+[🔗 Live Demo](https://vehicle-hamburg.vercel.app)
 
 [📂 GitHub Repo](https://github.com/frau-azadeh/vehicle-hamburg)
 
@@ -20,8 +20,8 @@ A modern, interactive map-based vehicle browser built with Next.js 15, TailwindC
 
 ## 📋 Core Features
 
-| 🔧 Feature                          | 💬 Description                                             |
-|-------------------------------------|-------------------------------------------------------------|
+| 🔧 Feature                          | 💬 Description                                              |
+| ----------------------------------- | ----------------------------------------------------------- |
 | 🚀 **Next.js 15 App Router**        | Built using the latest file-based routing paradigm (`app/`) |
 | 🧪 **Mock API Integration**         | Simulated JSON data used to mimic real-world API responses  |
 | 🗺️ **Leaflet Maps**                 | Displays vehicles on an interactive, zoomable Hamburg map   |
@@ -68,8 +68,6 @@ A modern, interactive map-based vehicle browser built with Next.js 15, TailwindC
 
 ## 🏗️ Folder Structure
 
-
-
 ```
 vehicle-hamburg/
 ├── public/                 # Static assets (e.g., favicon, images)
@@ -115,7 +113,7 @@ vehicle-hamburg/
 
 ## 🚀 Available Scripts
 
-| 📦 Command               | 🔍 Description                                         |
+| 📦 Command               | 🔍 Description                                          |
 | ------------------------ | ------------------------------------------------------- |
 | `npm run dev`            | Start the development server at `http://localhost:3000` |
 | `npm run build`          | Create an optimized production build                    |
@@ -124,7 +122,6 @@ vehicle-hamburg/
 | `npm run lint`           | Lint the codebase using **ESLint**                      |
 | `npm run prettier:fix`   | Auto-format the codebase using **Prettier**             |
 | `npm run prettier:check` | Check formatting issues without changing files          |
-
 
 ## 🧠 Project Management Snapshot
 
@@ -143,10 +140,9 @@ I used GitHub Projects to manage development tasks, plan milestones, and track p
 | 💼 Workflow Stage  | Tasks Managed                                                               |
 | ------------------ | --------------------------------------------------------------------------- |
 | 🧠 **Backlog**     | Planned upcoming tasks like documentation, enhancements, and bug reports    |
-| 🚦 **In Progress**  | Actively developed features like `CI/CD`, testing, and routing improvements |
+| 🚦 **In Progress** | Actively developed features like `CI/CD`, testing, and routing improvements |
 | 🔍 **In Review**   | Peer-reviewed code, open PRs, and integrated issue discussions              |
 | ✅ **Done**        | Completed units such as `Unit Testing`, `Test Utils`, and feature setups    |
-
 
 ---
 
@@ -162,11 +158,8 @@ I’m **Azadeh Sharifi Soltani**, a frontend developer focused on building polis
 
 > 📬 I’m open to frontend opportunities — feel free to reach out!
 
-  [LinkedIn](https://www.linkedin.com/in/azadeh-sharifi-soltani/) 
+[LinkedIn](https://www.linkedin.com/in/azadeh-sharifi-soltani/)
 
-  [GitHub](https://github.com/frau-azadeh) 
+[GitHub](https://github.com/frau-azadeh)
 
-  [Website](https://sunflower-dev.com)
-
-
-
+[Website](https://sunflower-dev.com)

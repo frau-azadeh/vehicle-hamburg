@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useMap } from 'react-leaflet';
+import { useEffect } from "react";
+
+import { useMap } from "react-leaflet";
 
 const ForceResizeMap = () => {
   const map = useMap();

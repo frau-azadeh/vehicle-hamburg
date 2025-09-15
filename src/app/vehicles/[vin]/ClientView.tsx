@@ -1,15 +1,18 @@
-'use client';
+"use client";
 
-import dynamic from 'next/dynamic';
-import { Vehicle } from '@/features/vehicles/types';
-import VehicleDetails from '@/features/vehicles/components/VehicleDetails';
-import Button from '@/features/vehicles/components/ui/Button';
-import { useRouter } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import VehicleDetails from "@/features/vehicles/components/VehicleDetails";
+import Button from "@/features/vehicles/components/ui/Button";
+import { Vehicle } from "@/features/vehicles/types";
+import { ArrowLeft } from "lucide-react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
-const VehicleMapSingle = dynamic(() => import('@/features/vehicles/components/VehicleMapSingle'), {
-  ssr: false,
-});
+const VehicleMapSingle = dynamic(
+  () => import("@/features/vehicles/components/VehicleMapSingle"),
+  {
+    ssr: false,
+  },
+);
 
 type ClientViewProps = {
   vehicle: Vehicle;
@@ -29,7 +32,7 @@ function ClientView({ vehicle }: ClientViewProps) {
       <div className="flex justify-center pt-4">
         <Button
           variant="outline"
-          onClick={() => router.push('/vehicles')}
+          onClick={() => router.push("/vehicles")}
           className="text-sm flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4" />

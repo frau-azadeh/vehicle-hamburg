@@ -1,8 +1,9 @@
-import { Vehicle } from '@/features/vehicles/types';
-import Card from '@/features/vehicles/components/ui/Card';
-import Badge from '@/features/vehicles/components/ui/Badge';
-import DetailItem from './DetailItem';
-import ShareButton from './ui/ShareButton';
+import Badge from "@/features/vehicles/components/ui/Badge";
+import Card from "@/features/vehicles/components/ui/Card";
+import { Vehicle } from "@/features/vehicles/types";
+
+import DetailItem from "./DetailItem";
+import ShareButton from "./ui/ShareButton";
 
 type VehicleDetailsProps = {
   vehicle: Vehicle | null;
@@ -10,7 +11,11 @@ type VehicleDetailsProps = {
 
 const VehicleDetails = ({ vehicle }: VehicleDetailsProps) => {
   if (!vehicle) {
-    return <Card className="text-center text-muted italic py-8">No vehicle selected</Card>;
+    return (
+      <Card className="text-center text-muted italic py-8">
+        No vehicle selected
+      </Card>
+    );
   }
 
   return (
@@ -29,8 +34,8 @@ const VehicleDetails = ({ vehicle }: VehicleDetailsProps) => {
       <DetailItem
         label="Charging"
         value={
-          <Badge variant={vehicle.charging ? 'success' : 'error'}>
-            {vehicle.charging ? 'Yes' : 'No'}
+          <Badge variant={vehicle.charging ? "success" : "error"}>
+            {vehicle.charging ? "Yes" : "No"}
           </Badge>
         }
       />
@@ -38,8 +43,8 @@ const VehicleDetails = ({ vehicle }: VehicleDetailsProps) => {
       <DetailItem
         label="Free For Rental"
         value={
-          <Badge variant={vehicle.freeForRental ? 'success' : 'error'}>
-            {vehicle.freeForRental ? 'Yes' : 'No'}
+          <Badge variant={vehicle.freeForRental ? "success" : "error"}>
+            {vehicle.freeForRental ? "Yes" : "No"}
           </Badge>
         }
       />

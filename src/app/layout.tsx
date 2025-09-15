@@ -1,5 +1,6 @@
-import { Toaster } from 'react-hot-toast';
-import './globals.css';
+import { Toaster } from "react-hot-toast";
+
+import "./globals.css";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,9 +11,9 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           toastOptions={{
             duration: 3000,
             style: {
-              background: 'hsl(0, 0%, 100%)',
-              color: 'hsl(220, 35%, 20%)',
-              border: '1px solid hsl(231, 76%, 90%)',
+              background: "hsl(0, 0%, 100%)",
+              color: "hsl(220, 35%, 20%)",
+              border: "1px solid hsl(231, 76%, 90%)",
             },
           }}
         />

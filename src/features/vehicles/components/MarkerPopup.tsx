@@ -1,5 +1,6 @@
-import { clsx } from 'clsx';
-import { Vehicle } from '@/features/vehicles/types';
+import { clsx } from "clsx";
+
+import { Vehicle } from "@/features/vehicles/types";
 
 const MarkerPopup = ({ vehicle }: { vehicle: Vehicle }) => {
   return (
@@ -8,15 +9,15 @@ const MarkerPopup = ({ vehicle }: { vehicle: Vehicle }) => {
       <p className="text-muted">{vehicle.address}</p>
 
       <p>
-        <span className="text-muted font-medium">Fuel:</span>{' '}
+        <span className="text-muted font-medium">Fuel:</span>{" "}
         <span
           className={clsx(
-            'font-semibold',
+            "font-semibold",
             vehicle.fuelLevel >= 70
-              ? 'text-green-600'
+              ? "text-green-600"
               : vehicle.fuelLevel >= 40
-                ? 'text-yellow-600'
-                : 'text-red-500'
+                ? "text-yellow-600"
+                : "text-red-500",
           )}
         >
           {vehicle.fuelLevel}%
@@ -28,16 +29,18 @@ const MarkerPopup = ({ vehicle }: { vehicle: Vehicle }) => {
       </p>
 
       <p>
-        <span className="text-muted font-medium">Charging:</span>{' '}
-        <span className={vehicle.charging ? 'text-green-600' : 'text-red-500'}>
-          {vehicle.charging ? 'Yes' : 'No'}
+        <span className="text-muted font-medium">Charging:</span>{" "}
+        <span className={vehicle.charging ? "text-green-600" : "text-red-500"}>
+          {vehicle.charging ? "Yes" : "No"}
         </span>
       </p>
 
       <p>
-        <span className="text-muted font-medium">Rental:</span>{' '}
-        <span className={vehicle.freeForRental ? 'text-green-600' : 'text-red-500'}>
-          {vehicle.freeForRental ? 'Yes' : 'No'}
+        <span className="text-muted font-medium">Rental:</span>{" "}
+        <span
+          className={vehicle.freeForRental ? "text-green-600" : "text-red-500"}
+        >
+          {vehicle.freeForRental ? "Yes" : "No"}
         </span>
       </p>
     </div>

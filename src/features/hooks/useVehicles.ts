@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
-import { Vehicle } from '../vehicles/types';
+import { useEffect, useState } from "react";
+
+import { Vehicle } from "../vehicles/types";
 
 function useVehicles() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [selectedVin, setSelectedVin] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/vehicles')
+    fetch("/api/vehicles")
       .then((res) => res.json())
       .then((data) => setVehicles(data));
   }, []);

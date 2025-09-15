@@ -1,39 +1,42 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { toast } from 'react-hot-toast';
-import { VehicleList, VehiclePanel, useVehicles } from '@/features/vehicles';
-import VehicleFuelFilterBar from '@/features/vehicles/components/VehicleFuelFilterBar';
-import { normalizeFuelType } from '@/features/vehicles/utils/fuelTypeUtils';
-import ResetFilters from '@/features/vehicles/components/ui/ResetFilters';
+import { useEffect, useMemo, useState } from "react";
+
+import { VehicleList, VehiclePanel, useVehicles } from "@/features/vehicles";
+import VehicleFuelFilterBar from "@/features/vehicles/components/VehicleFuelFilterBar";
+import ResetFilters from "@/features/vehicles/components/ui/ResetFilters";
+import { normalizeFuelType } from "@/features/vehicles/utils/fuelTypeUtils";
+import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 function VehiclesPageContent() {
   const { vehicles, selectedVin, setSelectedVin } = useVehicles();
-  const [fuelFilter, setFuelFilter] = useState('ALL');
+  const [fuelFilter, setFuelFilter] = useState("ALL");
 
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const fuelOptions = useMemo(() => {
-    const unique = Array.from(new Set(vehicles.map((v) => normalizeFuelType(v.fuelType))));
-    return ['ALL', ...unique.filter(Boolean)];
+    const unique = Array.from(
+      new Set(vehicles.map((v) => normalizeFuelType(v.fuelType))),
+    );
+    return ["ALL", ...unique.filter(Boolean)];
   }, [vehicles]);
 
   useEffect(() => {
     if (vehicles.length === 0) return;
 
-    const vin = searchParams?.get('vin');
-    const fuel = searchParams?.get('fuel')?.toUpperCase();
+    const vin = searchParams?.get("vin");
+    const fuel = searchParams?.get("fuel")?.toUpperCase();
 
     const vinExists = vin && vehicles.some((v) => v.vin === vin);
 
     if (vin && vinExists) {
       setSelectedVin(vin);
     } else if (vin && !vinExists) {
-      toast.error('Vehicle not found');
+      toast.error("Vehicle not found");
       setSelectedVin(null);
-      router.push('/vehicles', { scroll: false });
+      router.push("/vehicles", { scroll: false });
     }
 
     if (fuel && fuelOptions.includes(fuel)) {
@@ -49,10 +52,10 @@ function VehiclesPageContent() {
     setFuelFilter(fuel);
     const params = new URLSearchParams(searchParams?.toString());
 
-    if (fuel === 'ALL') {
-      params.delete('fuel');
+    if (fuel === "ALL") {
+      params.delete("fuel");
     } else {
-      params.set('fuel', fuel);
+      params.set("fuel", fuel);
     }
 
     updateUrl(params);
@@ -61,25 +64,29 @@ function VehiclesPageContent() {
   const handleSelect = (vin: string) => {
     setSelectedVin(vin);
     const params = new URLSearchParams(searchParams?.toString());
-    params.set('vin', vin);
+    params.set("vin", vin);
     updateUrl(params);
   };
 
   const handleReset = () => {
-    setFuelFilter('ALL');
+    setFuelFilter("ALL");
     setSelectedVin(null);
-    router.push('/vehicles', { scroll: false });
+    router.push("/vehicles", { scroll: false });
   };
 
   const filteredVehicles = useMemo(() => {
-    if (fuelFilter === 'ALL') return vehicles;
+    if (fuelFilter === "ALL") return vehicles;
     return vehicles.filter((v) => normalizeFuelType(v.fuelType) === fuelFilter);
   }, [vehicles, fuelFilter]);
 
   return (
     <main className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
       <div className="order-1 lg:order-2">
-        <VehiclePanel vehicles={vehicles} selectedVin={selectedVin} onSelect={handleSelect} />
+        <VehiclePanel
+          vehicles={vehicles}
+          selectedVin={selectedVin}
+          onSelect={handleSelect}
+        />
       </div>
 
       <div className="space-y-4 order-2 lg:order-1">

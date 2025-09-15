@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
+
 type DetailItemProps = {
   label: string;
   value: ReactNode;

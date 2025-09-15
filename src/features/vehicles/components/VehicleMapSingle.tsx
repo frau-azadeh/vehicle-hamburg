@@ -1,12 +1,15 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import { Vehicle } from '@/features/vehicles/types';
-import MarkerPopup from './MarkerPopup';
-import { selectedIcon } from '@/features/vehicles/map/mapIcons';
+import { useEffect } from "react";
+
+import { selectedIcon } from "@/features/vehicles/map/mapIcons";
+import { Vehicle } from "@/features/vehicles/types";
+import L from "leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+
+import MarkerPopup from "./MarkerPopup";
+
+import "leaflet/dist/leaflet.css";
 
 type VehicleMapSingleProps = {
   vehicle: Vehicle;

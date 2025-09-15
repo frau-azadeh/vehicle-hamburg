@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import { useEffect, useRef } from "react";
 
-import { Vehicle } from '@/features/vehicles/types';
-import { defaultIcon, selectedIcon } from '@/features/vehicles/map/mapIcons';
-import MarkerPopup from './MarkerPopup';
-import ForceResizeMap from './ForceResizeMap';
+import { defaultIcon, selectedIcon } from "@/features/vehicles/map/mapIcons";
+import { Vehicle } from "@/features/vehicles/types";
+import L from "leaflet";
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+
+import ForceResizeMap from "./ForceResizeMap";
+import MarkerPopup from "./MarkerPopup";
+
+import "leaflet/dist/leaflet.css";
 
 type VehicleMapProps = {
   vehicles: Vehicle[];
@@ -34,7 +36,10 @@ function FlyToSelectedAndOpenPopup({
     const marker = markerRefs.current[selectedVin];
 
     if (selected && marker) {
-      const latlng = L.latLng(selected.geoCoordinate.latitude, selected.geoCoordinate.longitude);
+      const latlng = L.latLng(
+        selected.geoCoordinate.latitude,
+        selected.geoCoordinate.longitude,
+      );
 
       const point = map.project(latlng, map.getZoom()).subtract([0, 150]);
       const target = map.unproject(point, map.getZoom());

@@ -1,5 +1,6 @@
-import { Suspense } from 'react';
-import VehiclesPage from './VehiclesPageContent';
+import { Suspense } from "react";
+
+import VehiclesPage from "./VehiclesPageContent";
 
 export default function VehiclesWrapper() {
   return (

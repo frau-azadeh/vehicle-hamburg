@@ -1,6 +1,8 @@
-import { useRef, useEffect } from 'react';
-import { Vehicle } from '@/features/vehicles/types';
-import VehicleListItem from './VehicleListItem';
+import { useEffect, useRef } from "react";
+
+import { Vehicle } from "@/features/vehicles/types";
+
+import VehicleListItem from "./VehicleListItem";
 
 type VehicleListProps = {
   vehicles: Vehicle[];
@@ -14,14 +16,18 @@ const VehicleList = ({ vehicles, selectedVin, onSelect }: VehicleListProps) => {
   useEffect(() => {
     if (selectedVin && itemRefs.current[selectedVin]) {
       itemRefs.current[selectedVin]?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
+        behavior: "smooth",
+        block: "center",
       });
     }
   }, [selectedVin]);
 
   if (!vehicles.length) {
-    return <div className="text-sm text-muted italic p-4 text-center">No vehicles found.</div>;
+    return (
+      <div className="text-sm text-muted italic p-4 text-center">
+        No vehicles found.
+      </div>
+    );
   }
 
   return (

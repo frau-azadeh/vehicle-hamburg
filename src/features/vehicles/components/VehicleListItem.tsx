@@ -1,11 +1,12 @@
-import { clsx } from 'clsx';
-import Link from 'next/link';
-import { memo } from 'react';
+import { memo } from "react";
 
-import Card from '@/features/vehicles/components/ui/Card';
-import FuelBadge from '@/features/vehicles/components/ui/FuelBadge';
-import InfoRow from '@/features/vehicles/components/ui/InfoRow';
-import { Vehicle } from '@/features/vehicles/types';
+import { clsx } from "clsx";
+
+import Card from "@/features/vehicles/components/ui/Card";
+import FuelBadge from "@/features/vehicles/components/ui/FuelBadge";
+import InfoRow from "@/features/vehicles/components/ui/InfoRow";
+import { Vehicle } from "@/features/vehicles/types";
+import Link from "next/link";
 
 export type VehicleListItemProps = {
   vehicle: Vehicle;
@@ -14,25 +15,30 @@ export type VehicleListItemProps = {
   refEl: (el: HTMLLIElement | null) => void;
 };
 
-const VehicleListItem = ({ vehicle, selected, onClick, refEl }: VehicleListItemProps) => {
+const VehicleListItem = ({
+  vehicle,
+  selected,
+  onClick,
+  refEl,
+}: VehicleListItemProps) => {
   return (
     <li
       ref={refEl}
       onClick={onClick}
-      onKeyDown={(e) => e.key === 'Enter' && onClick()}
+      onKeyDown={(e) => e.key === "Enter" && onClick()}
       role="button"
       tabIndex={0}
       className={clsx(
-        'cursor-pointer transition px-2 md:px-4 outline-none',
-        selected && 'animate-highlight'
+        "cursor-pointer transition px-2 md:px-4 outline-none",
+        selected && "animate-highlight",
       )}
     >
       <Card
         className={clsx(
-          'hover:shadow-md transition-all duration-200 rounded-xl',
+          "hover:shadow-md transition-all duration-200 rounded-xl",
           selected
-            ? 'bg-card ring-2 ring-primary border border-primary/40'
-            : 'bg-card border border-border hover:border-primary/40'
+            ? "bg-card ring-2 ring-primary border border-primary/40"
+            : "bg-card border border-border hover:border-primary/40",
         )}
       >
         <div className="space-y-1 text-text">
